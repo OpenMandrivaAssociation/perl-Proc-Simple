@@ -1,7 +1,7 @@
 %define module  Proc-Simple
 %define name    perl-%{module}
-%define version 1.21
-%define release %mkrel 2
+%define version 1.22
+%define release %mkrel 1
 
 Name:           %{name}
 Version:        %{version}
