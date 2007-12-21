@@ -15,6 +15,7 @@ Source:         http://www.cpan.org/modules/by-module/Proc/%{module}-%{version}.
 Buildrequires:  perl-devel
 %endif
 BuildArch:      noarch
+BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 The Proc::Simple package provides objects mimicing real-life processes
