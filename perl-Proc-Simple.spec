@@ -1,28 +1,29 @@
-%define module  Proc-Simple
-%define name    perl-%{module}
-%define version 1.24
-%define release %mkrel 1
+%define upstream_name    Proc-Simple
+%define upstream_version 1.25
 
-Name:           %{name}
-Version:        %{version}
-Release:        %{release}
-License:        Artistic
-Summary:        Launch and control background processes
-Group:          Development/Perl
-Url:            http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/Proc/%{module}-%{version}.tar.bz2
+Name:    perl-%{upstream_name}
+Version: %perl_convert_version %{upstream_version}
+Release: %mkrel 1
+
+Summary: Launch and control background processes
+License: Artistic
+Group:   Development/Perl
+Url:     http://search.cpan.org/dist/%{upstream_name}
+Source0: http://www.cpan.org/modules/by-module/Proc/%{upstream_name}-%{upstream_version}.tgz
+
 %if %{mdkversion} < 1010
 Buildrequires:  perl-devel
 %endif
-BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}
+BuildArch: noarch
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 The Proc::Simple package provides objects mimicing real-life processes
 from a user's point of view.
 
 %prep
-%setup -q -n %{module}-%{version}
+%define extract_dir %( tar ztvf %{_topdir}/SOURCES/%{upstream_name}-%{upstream_version}.tgz | head -1 | awk '{print $NF}' )
+%setup -q -n %{extract_dir}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS="vendor"
