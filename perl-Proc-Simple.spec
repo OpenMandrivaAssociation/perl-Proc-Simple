@@ -9,7 +9,7 @@ Summary: Launch and control background processes
 License: Artistic
 Group:   Development/Perl
 Url:     http://search.cpan.org/dist/%{upstream_name}
-Source0: http://www.cpan.org/modules/by-module/Proc/%{upstream_name}-%{upstream_version}.tgz
+Source0: http://www.cpan.org/modules/by-module/Proc/%{upstream_name}-%{upstream_version}.tar.gz
 
 %if %{mdkversion} < 1010
 Buildrequires:  perl-devel
@@ -22,8 +22,7 @@ The Proc::Simple package provides objects mimicing real-life processes
 from a user's point of view.
 
 %prep
-%define extract_dir %( tar ztvf %{_topdir}/SOURCES/%{upstream_name}-%{upstream_version}.tgz | head -1 | awk '{print $NF}' )
-%setup -q -n %{extract_dir}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS="vendor"
