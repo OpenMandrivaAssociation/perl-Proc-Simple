@@ -2,14 +2,14 @@
 %define upstream_version 1.31
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version 1.31
+Version:	%perl_convert_version %{upstream_version}
 Release:	1
 
 Summary:	Launch and control background processes
 License:	Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Proc/Proc-Simple-1.31.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Proc/Proc-Simple-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildArch:	noarch
@@ -35,7 +35,7 @@ make test
 %doc README
 %{_mandir}/man3/*
 %{perl_vendorlib}/Proc
-%{perl_vendorlib}/auto/Proc
+# %{perl_vendorlib}/auto/Proc
 
 %changelog
 * Tue Jun 28 2011 Guillaume Rousse <guillomovitch@mandriva.org> 1.280.0-1mdv2011.0
@@ -78,5 +78,6 @@ make test
 
 * Sun Apr 02 2006 Guillaume Rousse <guillomovitch@mandriva.org> 1.21-1mdk
 - contributed by Kyle Yencer <kyle@yencer.net>
+
 
 
